@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Shushma ❤️</title>
+<style>
+    body {
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        color: #333;
+        overflow: hidden;
+    }
+
+    h1 {
+        margin-top: 80px;
+        font-size: 2.5rem;
+        color: #ff3366;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    .question-box {
+        margin-top: 50px;
+        display: none;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    .question {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .options button {
+        background-color: #ff3366;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        margin: 5px;
+        border-radius: 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .options button:hover {
+        background-color: #ff6699;
+        transform: scale(1.05);
+    }
+
+    .heart-container {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 60px;
+        animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .heart {
+        font-size: 80px;
+        color: #ff3366;
+        cursor: pointer;
+        animation: heartbeat 1.5s infinite;
+    }
+
+    .click-text {
+        margin-bottom: 10px;
+        color: #ff3366;
+        font-size: 1.2rem;
+        font-weight: bold;
+        animation: fadeText 2s infinite alternate;
+    }
+
+    .message {
+        display: none;
+        margin-top: 40px;
+        font-size: 1.8rem;
+        color: #fff;
+        background: rgba(0,0,0,0.3);
+        padding: 20px;
+        border-radius: 20px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.3); }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeText {
+        from { opacity: 0.4; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(-5px); }
+    }
+</style>
+</head>
+<body>
+
+<h1 id="introText"> Oyy Cutie 💖 I have few questions for you...</h1> <!-- Added ID -->
+
+<div class="question-box" id="q1">
+    <div class="question">1️⃣ If Hami social media ma na veteko vaye, hami pailai dekhi chineko vaye ☕, pani timi utikai ignore garythiyau jatti aaile garxau....??😉</div>
+    <div class="options">
+        <button onclick="nextQuestion()">Yes 😍</button>
+        <button onclick="nextQuestion()">Maybe...Thah xaina 😏</button>
+    </div>
+</div>
+
+<div class="question-box" id="q2">
+    <div class="question">2️⃣ Are we gonna be just friend forever or we are not even friend..?? 💻❤️</div>
+    <div class="options">
+        <button onclick="showHeart()">will be friend forever 😚</button>
+        <button onclick="showHeart()">No, we are more than friend 😉</button>
+    </div>
+</div>
+
+<div class="heart-container" id="heartContainer">
+    <div class="click-text">💫 Click me 💫</div>
+    <div class="heart" id="heart" onclick="showMessage()">❤️</div>
+</div>
+
+<div class="message" id="message">
+    🎂 Happiest Happiest Birthday to you my angel 🎉<br><br>
+    First of all thank you very much for coming into my life, i fell like i am complete now🌸<br>
+    Do you know what, you deserve to be Happy forever and i want to see you happy forever.💕<br><br>
+    Timle socheko chaheko sabai kura pugos💘<br><br>
+    Many more happy returns off the day...khub khus raha and hamesa muskurat raha, may bholenath bless you <br><br>
+     Remember i am always there for you.❤️
+
+</div>
+
+<audio id="bgMusic" loop autoplay>
+  <source src="https://cdn.pixabay.com/download/audio/2023/03/08/audio_36f2b3b6f0.mp3?filename=romantic-piano-141360.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    let questionIndex = 0;
+    const questions = ["q1", "q2"];
+
+    document.getElementById(questions[0]).style.display = "block";
+
+    function nextQuestion() {
+        document.getElementById(questions[questionIndex]).style.display = "none";
+        questionIndex++;
+        if (questionIndex < questions.length) {
+            document.getElementById(questions[questionIndex]).style.display = "block";
+        } else {
+            showHeart();
+        }
+    }
+
+    function showHeart() {
+        document.getElementById("q2").style.display = "none";
+        document.getElementById("heartContainer").style.display = "flex";
+        document.getElementById("introText").style.display = "none"; // 👈 hides the main text
+    }
+
+    function showMessage() {
+        document.getElementById("heartContainer").style.display = "none";
+        document.getElementById("message").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
